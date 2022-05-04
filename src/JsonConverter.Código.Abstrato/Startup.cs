@@ -1,6 +1,8 @@
 using FluentValidation.AspNetCore;
 using JsonConverter.Código.Abstrato.Converters;
+using JsonConverter.Código.Abstrato.Delegates;
 using JsonConverter.Código.Abstrato.Domínio;
+using JsonConverter.Código.Abstrato.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -32,6 +34,8 @@ namespace JsonConverter.Código.Abstrato
             });
 
             services.AddMvc().AddFluentValidation(fv => { fv.RegisterValidatorsFromAssemblyContaining<IncluirPessoaCommand>(); });
+
+            services.AddServices();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
